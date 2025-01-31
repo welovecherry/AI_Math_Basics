@@ -227,13 +227,13 @@
 #     if num % 2 == 0:
 #         print(num)
 
-numbers = [1, 2, 3, 4, 5]
+# numbers = [1, 2, 3, 4, 5]
 
-evens = []
-for num in numbers:
-    if num % 2 == 0:
-        evens.append(num)
+# evens = []
+# for num in numbers:
+#     if num % 2 == 0:
+#         evens.append(num)
 
-print(evens)
+# print(evens)
 
-odds = [num for num in numbers if num % 2 == 1]
+# odds = [num for num in numbers if num % 2 == 1]
