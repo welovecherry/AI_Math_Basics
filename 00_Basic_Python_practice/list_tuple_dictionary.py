@@ -108,67 +108,156 @@ for 변수 in 반복 가능한 객체:
 # for i in range(5):
 #     print(i) #0 1 2 3 4 with new line
 
-''' for with enumerate()
-반복 가능한 객체의 인덱스와 값을 동시에 제공 '''
+''' not in 
+- 특정 값이 리스트, 튜플, 문자열 등 
+반복 가능한 객체에 포함되지 않을 때 확인하는 연산자
+- 특정 값이 없을 때 True 리턴함
 
-# fruits = ["apple", "banana", "cherry"]
-
-# for index, fruit in enumerate(fruits):
-#     print(index, fruit)
-
-# for i in range(2, 4):
-#     for j in range(1, 4):
-#         print(f"{i} * {j} = {i * j}")
-
-''' range() function 
-1. range(stop): 0 ~ 스탑 직전까지의 숫자 생성.
-
-2. for i in range(start, stop, step)
-
-- 레인지는 모든 숫자를 메모리에 저장하지 않고 필요할때마다 생성함.
-따라서 메모리 효율이 좋다.
+반대는 in.
+in은 특정 값이 존재할 때 True 반환함
 '''
 
-# for i in range(2, 5):
-#     print(i)
+# numbers = [1, 2, 3, 4]
 
-# for i in range(10, 1, -1):
-#     print(i)
+# if 3 in numbers:
+#     print("there is 3")
 
-# total = 0;
-# for i in range(0, 11):
-#     total += i
+# if 6 not in numbers:
+#     print("there is not 6 in the list")
 
-# print(f"sum: {total}")
+''' 리스트에서 중복된 값 제거하기'''
+# numbers = [1, 2, 3, 4, 5, 6, 6, 6, 1]
+# print (numbers)
 
+# unique_numbers = []
 
-# fruits = ['apple', 'banana', 'cherry', 'date']
+# for number in numbers:
+#     if number not in unique_numbers:
+#         unique_numbers.append(number)
 
-# for index, fruit in enumerate(fruits):
-#     print(f"{index} : {fruit}")
+# print (numbers)
+# print (unique_numbers)
 
+# student = {'name': "Alice", 'age' : 40}
 
-# total = 0
-# scores = [85, 90, 78, 92, 88]
-
-# for index, score in enumerate(scores):
-#     total += score
-#     print(f"Student {index}: {score}")
-# print(f"Total score: {total}")
-
-# '''1'''
-# for even in range(2, 21, 2):
-#     print(even)
-
-# '''2'''
-# for i in range(2, 6):
-#     for j in range(1, 10):
-#         print(f"{i} * {j} = {i * j}")
-
-# '''3'''
-# total = 0
-# for i in range(3, 101, 3):
-#     total += i
-# print(total)
+# if 'grade' not in student:
+#     print('there is no grade')
 
 
+''' list comprehension 
+- 기존의 리스트를 기반으로 새로운 리스트 만들 때 유용
+new_list = [expression for item in iterable if condition]
+'''
+
+# squared_numbers = [x ** 2 for x in range(10)]
+# print(squared_numbers)
+
+# if 추가할 수 있다.
+# even_squared_numbers = [x ** 2 for x in range(10) if x % 2 == 0]
+# print(even_squared_numbers)
+
+# fruits = ["a", "b", "c"]
+# uppercase_fruits = [fruit.upper() for fruit in fruits]
+# print(uppercase_fruits)
+
+
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+
+# flattened = []
+# for row in matrix:
+#     for num in row:
+#         flattened.append(num)
+# print(flattened)
+
+# matrix = [
+#     [1, 2, 3],
+#     [4, 5, 6],
+#     [7, 8, 9]
+# ]
+
+# sum = 0
+# for row in matrix:
+#     for num in row:
+#         sum += num
+# print(sum)
+
+''' 튜플 
+- 요소를 변경, 삭제하려고 하면 에러남.
+- 튜플 안에는 [] 리스트 사용 가능함.
+
+- 튜플이 리스트보다 메모리 사용량이 효율적인 이유
+1. 불변성: 튜플은 한번 생성되면 변경 불가. 추가적인 메모리 관리가 불필요해서
+2. 고정된 크기: 튜플은 고정된 크기를 가지므로
+'''
+# t1 = ()
+# t2 = (1,)
+# t3 = (1, 2, 3)
+# t4 = 1, 2, 3
+# t5 = ('a', 'b', ('ab', 'cd'))
+# mixed_tuple = (1, 2, "abc", 'a', [1, 2, 3])
+
+# print(t2[0])
+
+# students = (
+#     ("a", [1, 2, 3]),
+#     ("b", [4, 5, 6]),
+#     ("c", [10, 20, 30])
+# )
+
+''' 학생 별로 평균 성적 내기 '''
+# sum = 0
+# aver = []
+
+# for name, scores in students:
+#     # print(scores)
+#     for score in scores:
+#         # print(score)
+#         sum += score
+#         # print(f"sum: {sum}")
+#     aver.append(sum / 3)
+#     sum = 0
+#     print(f"name: {name}, average: {aver[-1]}")
+#     print("")
+
+''' 튜플 언패킹 
+- 튜플의 요소를 개별 변수에 쉽게 할당하는 방법.
+- 가독성을 높이고 여러값을 동시에 반환 가능
+'''
+
+# person = {"alice", 30, "seoul"}
+
+# name, age, city = person
+# print( name, age, city)
+
+'''
+- 아래 코드는 전체적으로 리스트, 
+- 리스트 안애 여러개의 튜플.
+'''
+# products = [
+#     ("Apple", 1000),
+#     ("Banana", 500),
+#     ("Cherry", 1500)
+# ]
+
+
+# for product , price in products:
+#     print(product, price)
+
+coordinates = [
+    (1, 2),
+    (2, 3),
+    (4, 5)
+]
+
+# for x, y in coordinates:
+#     print(x, y)
+
+# coordinates[0] = 3 # 0번째 인덱스는 튜플이 아니라 리스트라서 수정 가능함.
+# print(coordinates[0])
+
+# coordinates[0][0] = 9
+# print(coordinates[0][0]) # 튜플의 요소 하나를 수정할 수 없어서 에러남
