@@ -261,3 +261,35 @@ coordinates = [
 
 # coordinates[0][0] = 9
 # print(coordinates[0][0]) # 튜플의 요소 하나를 수정할 수 없어서 에러남
+
+''' list comprehension 
+- 리스트를 간결하고 효율적으로 생성하는 법
+- 리스트를 기반으로 새로운 리스트 생성, 특정 조건을 만족하는 요소만 선택 가능 
+
+
+new_list = [expression for item in itarable if condition]
+- expression: 새 리스트의 각 요소를 생성하는 표현식입니다.
+- item: 반복 가능한 객체(iterable)에서 가져온 각 요소입니다.
+- iterable: 리스트, 튜플, 문자열 등 반복 가능한 객체입니다.
+- condition: (선택 사항) 요소를 포함할지 여부를 결정하는 조건입니다.
+
+'''
+numbers = [1, 2, 3, 4, 5]
+squred_num = [x ** 2 for x in numbers]
+print(squred_num)
+
+text = "hello"
+uppercase_text = [char.upper() for char in text]
+print(uppercase_text)
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+flattend = [num for row in matrix for num in row]
+print(flattend)
+
+grades = {'alice': 85, "bob": 10, "cheery":100}
+grade_list = [f"{name}: {grade}" for name, grade in grades.items()]
+print(grade_list)
