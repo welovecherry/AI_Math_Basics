@@ -461,7 +461,7 @@ def filter_even_length_words(words):
     return even_list
 
 res = filter_even_length_words(["One", "Two", "Thre", "Four"])
-print(res)
+# print(res)
 
 # return [word for word in words if len(word) % 2 == 0]
 
@@ -476,6 +476,7 @@ def simple_multiplication(number):
 # print(simple_multiplication(3))
 
 '''
+
 You are given two interior angles (in degrees) of a triangle.
 
 Write a function to return the 3rd.
@@ -486,4 +487,157 @@ Note: only positive integers will be tested.
 def other_angle(a, b):
     return 180 - (a + b)
 
-print(other_angle(100, 10))
+# print(other_angle(100, 10))
+
+'''다중 리턴값 문제
+🔹 문제 1: 학생 정보 함수
+
+학생의 이름, 나이, 성적을 입력받아 함수에서 리턴하세요.
+리턴된 값을 출력하세요.'''
+
+def info(name, age, grade):
+    return name, age, grade
+
+# print(info("cherry", 10, 'a'))
+
+'''문제 2: 사각형 정보 계산
+
+가로와 세로 길이를 입력받아 둘레와 넓이를 계산하는 함수를 만드세요.
+계산된 둘레와 넓이를 출력하세요.'''
+
+def sa(width, height):
+    len = 2 * (width + height)
+    dimention = width * height
+    return len, dimention
+
+# print(sa(2, 5))
+
+'''# 첫 번째 학생의 이름, 나이, 성적을 각각 변수에 언패킹하세요. '''
+students = [
+    ("홍길동", 18, "A"),
+    ("김철수", 17, "B"),
+    ("이영희", 19, "A+")
+]
+# name, age, grade = students[0]
+# print(name)
+# print(age)
+# print(grade)
+
+
+''' dictionary prac'''
+student = {
+    "name": "cherry",
+    "age": 20,
+    "grade": "a",
+    "subject": ["math", "english"]
+}
+
+# print(student["name"])
+# print(student["subject"])
+student["university"] = "best uni"
+student["age"] = 1
+# print(student)
+
+
+'''나머지 값 언패킹 문제
+🔹 문제 1: 성적 합계 계산
+
+학생들의 성적을 입력받아 
+첫 번째 성적은 제외하고 나머지 성적의 평균을 계산하세요.'''
+first, *rest = [1, 2, 3, 4, 5, 6]
+
+# why this code does not work?
+# sum = 0
+# for i in rest:
+#     sum += rest[i]
+
+''' unpacking in python 
+언패킹 : *연산자을 이용해 반복 가능한 객체(리스트, 튜플)을 언패킹 해서 개별 요소로 분리함.
+패킹: 여러개 값을 하나의 리스트, 튜플로 묶기
+
+*언제 쓰나?
+1. 언패킹 할때
+2. 함수의 가변인자 받을 때
+3. 리스트/튜플의 요소를 개별 인자로 받을 때
+'''
+
+numbers = [1, 2, 3, 4, 5]
+first, *rest, = numbers
+# print("first: ", first)
+# print("rest: ", rest)
+
+def sum_all(*args):
+    return sum(args)
+
+# print("sum: ", sum_all(1, 2, 3, 4, 5))
+# print("sum of rest: ", sum_all(*rest))
+
+list1 = [1, 2]
+list2 = [11, 22]
+combined = [*list1, *list2]
+# print("combined: ", combined)
+
+''' 파이썬에서 **은 딕셔너리를 언패킹하는데 씀
+딕셔너리의 키-밸류 쌍을 개별적으로 추출해 새로운 딕셔너리에 추가함
+'''
+dic1 = {'a': 1, 'b':2}
+dic2 = {'c': 3, 'd':4}
+
+merged_dic = {**dic1, **dic2}
+# print(merged_dic)
+
+
+class FourCal:
+    def setdata(self, first, second):
+        self.first = first
+        self.second = second
+    def add(self):
+        result = self.first + self.second
+        return result
+    
+a = FourCal()
+a.setdata(4, 2)
+# print(a.add())
+
+class Calculator:
+    def __init__(self, init_value=0):
+        self.result = init_value;
+        self.history = []
+
+    def add(self, num):
+        self.result += num
+        self.history.append(f"add: {num}")
+        return self.result
+    
+    def sub(self, num):
+        self.result -= num
+        self.history.append(f"sub: {num}")
+        return self.result
+    
+    def mul(self, num):
+        self.result *= num
+        self.history.append(f"mul: {num}")
+        return self.result
+    
+    def div(self, num):
+        if num == 0:
+            return "division by 0 is forbidden"
+        self.result /= num
+        self.history.append(f"div: {num}")
+        return self.result
+    
+    def clear(self):
+        self.result = 0
+        self.history.append("clear")
+        return self.result
+
+    def show_history(self):
+        return self.history
+    
+calc1 = Calculator(1000)
+calc2 = Calculator(100)
+
+print(calc1.add(5))
+print(calc1.add(10))
+print(calc1.show_history())
+

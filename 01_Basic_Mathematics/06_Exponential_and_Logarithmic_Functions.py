@@ -11,6 +11,6 @@
 '''
 
 '''
-지수함수, 로그함수 : Exponential function, Logarithmic function
+지수함수, 로그함수 : 
 '''
 
