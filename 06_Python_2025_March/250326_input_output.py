@@ -71,4 +71,26 @@ file.close()
 #     print(content)
 
 
+# try:
+#     password = input("enter password")
+# except ValueError as error:
+#     print("error")
+# else:
+#     print("logged in")
 
+# file = open("ex2.txt", "r")
+
+# lines = file.readlines()
+# for line in lines:
+#     print(line.strip())
+# file.close()
+
+
+with open("ex3.txt", "w") as file:
+    file.write("hi\n")
+    file.write("123")
+    # content = file.read()
+    # print(content)
+with open("ex3.txt", "r") as file:
+    content = file.read()
+    print(content)

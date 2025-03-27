@@ -32,3 +32,49 @@ scores = [1, 2, 3, 4, 5]
 #         print("hi")
 
 '''리스트 컴프리헨션은 반복문을 사용해 리스트를 간단하게 만드는 방법입니다.'''
+squared = [x**2 for x in range(1, 11)]
+# print(squared)
+
+even_squared = [x**2 for x in range(1, 11) if x % 2 == 0]
+
+# student = {
+#     "name": "홍길동",
+#     "age": 20,
+#     "grade": "A"
+# }
+
+# for key, value in student.items():
+#     print(key, value)
+
+# for value in student.values():
+    # print(value)
+
+student = {
+    "이름": "김철수",
+    "나이": 15,
+    "학년": 3
+}
+
+# print(student["이름"])
+# for key, value in student.items():
+    # print(key, value)
+
+total = 0;
+for i in range(1,11):
+    total += i
+
+# print(total)
+
+students = {
+    "학생1": 85,
+    "학생2": 92,
+    "학생3": 78
+}
+
+# for key, value in students.items():
+#     print(f"{key}: {value}")
+
+for i, (name, score) in enumerate(students.items(), 1):
+    print(f"{i}{name}'s score: {score}")
+
+    

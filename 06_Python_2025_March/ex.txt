@@ -1,2 +1,2 @@
 hihi
-ex using with statement
+ex of python
